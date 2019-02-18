@@ -6,7 +6,7 @@ Link to GIST: https://gist.github.com/mcewand/69510cebb214184174b5cf30b5b8298e
 
 ### 1) Loads a page at /wiki which explains what this page does.
 
-I created a route using the cfr_search.routing.yml file at the "/wiki" endpoint. Then assigned a function in the controller which would then render the content for the landing page.
+I created a route using the cfr_search.routing.yml file at the "/wiki" endpoint. Then assigned a function in the controller to render the content for the page.
 
 ### 2) The page should include a 'Search' form field.
 
@@ -25,15 +25,15 @@ The form handler will execute a redirect to the route using the value from the t
 
 ### 6) The page should display the term that is being searched.
 
-There's a callback in the router file '_title_callback' which will query the controller to dinamically show the term as the page title.
+There's a callback in the router file 'title_callback' which will query the controller to dinamically show the search term as the page title.
 
 ### 7) Search results should include the Title, a link to the article, and the extract for the article.
 
-To avoid doing multiple calls to Wikipedia, I first search for relevant articles, then get all the relevant IDs. I can then query Wiki for both URLs, extracts and map them inside the controller.
+To avoid doing multiple calls to Wikipedia, I search for relevant articles first and get all the relevant IDs. I can then query Wiki a couple of times to fetch all article URLs and extracts. The mapping of all 3 requests happens inside the controller.
 
 ### 8) Your module should include functional tests and relevant documentation.
 
-PHPUnit is now the standard for Drupal 8 testing. I created the class CfrSearchTests to implement some basic functional testing to check for page access, submit the form and get the results using the URL parameter.
+PHPUnit is now the standard for Drupal 8 testing. I created the class CfrSearchTests to implement some basic functional testing and check for page access, submit the form and get the results using the URL parameter.
 
 ### 9) Check the module into github.
 
