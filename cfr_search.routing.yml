@@ -1,0 +1,8 @@
+cfr_search_page:
+  path: '/wiki/{search_term}'
+  defaults:
+    _controller: '\Drupal\cfr_search\Controller\CfrSearchController::searchArticles'
+    _title_callback: '\Drupal\cfr_search\Controller\CfrSearchController::getTitle'
+    search_term: ''
+  requirements:
+    _permission: 'access content'

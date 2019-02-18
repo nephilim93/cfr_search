@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Template to theme individual cfr_search results.
+ *
+ * Available variables:
+ * - title: The Article title.
+ * - teaser: The Article extract.
+ * - link: The Article link.
+ */
+#}
+
+<div class="article-preview">
+  {% if title and link %}
+  <h2 class="title"><a href="{{ link }}">{{ title }}</a></h2>
+  {% endif %}
+  {% if teaser %}
+  <div class="article-preview--content">
+    <p>{{ teaser | raw }}</p>
+  </div>
+  {% endif %}
+</div>

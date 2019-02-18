@@ -1,0 +1,6 @@
+name: CFR Search
+description: 'Simple module to search for Wikipedia articles using the MediaWiki API.'
+package: CFR
+
+type: module
+core: '8.x'

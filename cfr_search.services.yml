@@ -1,0 +1,5 @@
+services:
+  cfr_search_client:
+    class: '\Drupal\cfr_search\Client\CfrSearchClient'
+    arguments:
+      - '@http_client_factory'

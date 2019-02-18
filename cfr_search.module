@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * The cfr_seach module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function cfr_search_theme($existing, $type, $theme, $path) {
+  return [
+    'cfr_search' => [
+      'variables' => [
+        'form' => [],
+        'results' => [],
+      ],
+    ],
+    'cfr_search_article_preview' => [
+      'variables' => [
+        'title' => NULL,
+        'link' => NULL,
+        'teaser' => NULL,
+      ],
+    ],
+  ];
+}

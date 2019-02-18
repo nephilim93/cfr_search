@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Main cfr_search template for the /wiki page. Adds both the form and search results.
+ *
+ * Available variables:
+ * - form: The search form.
+ * - results: The search results.
+ */
+#}
+
+<div class="cfr-search">
+  <div class="cfr-search--intro">
+    <p>Use the form below to search for Wikipedia Articles!</p>
+    <p>You can also search by adding your term to the URL, for example '/wiki/Apple'</p>
+  </div>
+  {% if form %}
+  <div class="cfr-search--form">
+    {{ form }}
+  </div>
+  {% endif %}
+  {% if results %}
+  <div class="cfr-search--results">
+    {{ results }}
+  </div>
+  {% endif %}
+</div>
