@@ -1,6 +1,6 @@
 # Simple module to perform a MediaWiki RESTful API search using Drupal 8.
 
-Link to GIST: 
+Link to GIST: https://gist.github.com/mcewand/69510cebb214184174b5cf30b5b8298e
 
 ## Challenge explanation:
 
