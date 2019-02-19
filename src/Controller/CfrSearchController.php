@@ -82,10 +82,8 @@ class CfrSearchController extends ControllerBase {
         ];
         array_push($page_ids, $search_result['pageid']);
       }
-      // Fetch Article URLs using the page_ids array.
-      $pages = $this->cfrSearchClient->getArticleUrls($page_ids);
-      // Fetch Article extracts using the page_ids array.
-      $extracts = $this->cfrSearchClient->getArticleExtracts($page_ids);
+      // Fetch Article URLs and extracts using the page_ids array.
+      $pages = $this->cfrSearchClient->getArticleUrlsExtracts($page_ids);
       // Map URLs and Extracts to links and teasers in the results[] array.
       foreach ($results as $key => $result) {
         // Fetch property value.
@@ -93,7 +91,7 @@ class CfrSearchController extends ControllerBase {
         // Set proper link.
         $results[$key]['#link'] = $pages['query']['pages'][$hash]['fullurl'];
         // Set the extract as a teaser.
-        $results[$key]['#teaser'] = $extracts['query']['pages'][$hash]['extract'];
+        $results[$key]['#teaser'] = $pages['query']['pages'][$hash]['extract'];
       }
     }
     // Fetch the search form.

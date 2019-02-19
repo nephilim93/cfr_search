@@ -71,7 +71,7 @@ class CfrSearchClient {
   }
 
   /**
-   * Get the Wikipedia Article URLs from its page ids.
+   * Get the Wikipedia Article URLs and Extracts from its page ids.
    *
    * @param array $page_ids
    *   The pageids of the Articles.
@@ -82,51 +82,18 @@ class CfrSearchClient {
    * @throws \GuzzleHttp\Exception\RequestException
    *    In case request fails or breaks.
    */
-  public function getArticleUrls(array $page_ids) {
+  public function getArticleUrlsExtracts(array $page_ids) {
     try {
       // Map request as query object.
       $response = $this->client->get('', [
         'query' => [
           'action' => 'query',
-          'prop' => 'info',
+          'prop' => 'info|extracts',
           'inprop' => 'url',
           'utf8' => '',
           'format' => 'json',
-          'pageids' => implode('|', $page_ids),
-        ],
-      ]);
-      $data = Json::decode($response->getBody());
-      return $data;
-    }
-    catch (RequestException $e) {
-      // Notify user about failed request.
-      drupal_set_message(t('An error ocurred while attempting to fetch information from resource: "%error"', ['%error' => $e->getMessage()]), 'error');
-    }
-  }
-
-  /**
-   * Get the Wikipedia Article Extracts from its page ids.
-   *
-   * @param array $page_ids
-   *   The pageids of the Articles.
-   *
-   * @return Object
-   *   The search results.
-   *
-   * @throws \GuzzleHttp\Exception\RequestException
-   *    In case request fails or breaks.
-   */
-  public function getArticleExtracts(array $page_ids) {
-    try {
-      // Map request as query object.
-      $response = $this->client->get('', [
-        'query' => [
-          'action' => 'query',
-          'prop' => 'extracts',
           'exintro' => '',
           'explaintext' => '',
-          'utf8' => '',
-          'format' => 'json',
           'pageids' => implode('|', $page_ids),
         ],
       ]);
